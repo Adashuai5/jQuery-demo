@@ -11,3 +11,11 @@ function getSiblings(node) {
     }
     return array
 }
+
+function addClass(node, classes) {
+    for (let key in classes) {
+        var value = classes[key]
+        var methodName = value ? 'add' : 'remove'
+        node.classList[methodName](key)
+    }
+}
