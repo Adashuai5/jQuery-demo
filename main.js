@@ -20,7 +20,21 @@ window.jQuery = function (nodeOrSelector) {
             }
         })
     }
-return nodes
+    nodes.getText = function () {
+        var texts = []
+        for (let i = 0; i < nodes.length; i++) {
+            texts.push(nodes[i].textContent)
+        }
+        return texts
+    }
+    nodes.setText = function (text) {
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].textContent = text
+        }
+    }
+
+    return nodes
 }
 var node2 = jQuery('ul>li')
 node2.addClass(['blue'])
+node2.setText('hi')
