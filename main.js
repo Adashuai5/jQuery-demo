@@ -1,4 +1,4 @@
-function getSiblings(node) {
+Adadom.getSiblings = function (node) {
     var allChildren = node.parentNode.children
     var array = {
         length: 0
@@ -12,7 +12,7 @@ function getSiblings(node) {
     return array
 }
 
-function addClass(node, classes) {
+Adadom.addClass = function (node, classes) {
     for (let key in classes) {
         var value = classes[key]
         var methodName = value ? 'add' : 'remove'
