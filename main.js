@@ -37,6 +37,7 @@ window.jQuery = function (nodeOrSelector) {
 
     return nodes
 }
-var node2 = jQuery('ul>li')
-node2.addClass(['blue'])
-node2.text('hi')
+window.$ = jQuery
+var $node2 = $('ul>li')
+$node2.addClass(['green'])
+$node2.text('hi')
