@@ -20,16 +20,18 @@ window.jQuery = function (nodeOrSelector) {
             }
         })
     }
-    nodes.getText = function () {
-        var texts = []
-        for (let i = 0; i < nodes.length; i++) {
-            texts.push(nodes[i].textContent)
-        }
-        return texts
-    }
-    nodes.setText = function (text) {
-        for (let i = 0; i < nodes.length; i++) {
-            nodes[i].textContent = text
+
+    nodes.text = function (text) {
+        if (text === undefined) {
+            var texts = []
+            for (let i = 0; i < nodes.length; i++) {
+                texts.push(nodes[i].textContent)
+            }
+            return texts
+        } else {
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].textContent = text
+            }
         }
     }
 
@@ -37,4 +39,4 @@ window.jQuery = function (nodeOrSelector) {
 }
 var node2 = jQuery('ul>li')
 node2.addClass(['blue'])
-node2.setText('hi')
+node2.text('hi')
