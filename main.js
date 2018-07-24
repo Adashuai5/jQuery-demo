@@ -1,4 +1,10 @@
-window.Node2 = function (node) {
+window.jQuery = function (nodeOrSelector) {
+    let node
+    if (typeof nodeOrSelector === 'string') {
+        node = document.querySelector(nodeOrSelector)
+    } else {
+        nodeOrSelector === node
+    }
     return {
         getSiblings: function () {
             var allChildren = node.parentNode.children
@@ -22,8 +28,7 @@ window.Node2 = function (node) {
         }
     }
 }
-
-var node2 = Node2(item3)
+var node2 = jQuery('#item3')
 node2.getSiblings()
 node2.addClass({
     'a': false,
