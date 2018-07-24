@@ -1,37 +1,26 @@
 window.jQuery = function (nodeOrSelector) {
-    let node
+    let nodes = {}
     if (typeof nodeOrSelector === 'string') {
-        node = document.querySelector(nodeOrSelector)
-    } else {
-        nodeOrSelector === node
-    }
-    return {
-        getSiblings: function () {
-            var allChildren = node.parentNode.children
-            var array = {
-                length: 0
-            }
-            for (let i = 0; i < allChildren.length; i++) {
-                if (allChildren[i] !== node) {
-                    array[array.length] = allChildren[i]
-                    array.length += 1
-                }
-            }
-            return array
-        },
-        addClass: function (classes) {
-            for (let key in classes) {
-                var value = classes[key]
-                var methodName = value ? 'add' : 'remove'
-                node.classList[methodName](key)
-            }
+        let temp = document.querySelectorAll(nodeOrSelector)
+        for (let i = 0; i < temp.length; i++) {
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    } else if (nodeOrSelector instanceof Node) {
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
         }
     }
+
+    nodes.addClass = function (classes) {
+        classes.forEach((value) => {
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].classList.add(value)
+            }
+        })
+    }
+return nodes
 }
-var node2 = jQuery('#item3')
-node2.getSiblings()
-node2.addClass({
-    'a': false,
-    'b': true,
-    'c': true
-})
+var node2 = jQuery('ul>li')
+node2.addClass(['blue'])
