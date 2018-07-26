@@ -7,6 +7,9 @@ for (let i = 0; i < allButtons.length; i++) {
         $('#images').css({
             transform: 'translate(' + n + 'px)'
         })
+        allButtons.eq(n)
+            .addClass('red')
+            .siblings('.red').removeClass('red')
     })
 }
 
