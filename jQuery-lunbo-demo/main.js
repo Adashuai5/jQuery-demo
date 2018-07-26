@@ -15,9 +15,21 @@ var size = allButtons.length
 allButtons.eq(n % size).trigger('click')
     .addClass('red')
     .siblings('.red').removeClass('red')
-setInterval(() => {
+var timerID = setInterval(() => {
     n += 1
-    allButtons.eq(n % 5).trigger('click')
-    .addClass('red')
-    .siblings('.red').removeClass('red')
+    allButtons.eq(n % size).trigger('click')
+        .addClass('red')
+        .siblings('.red').removeClass('red')
 }, 1000)
+
+$('.window').on('mouseenter', function () {
+    window.clearInterval(timerID)
+})
+$('.window').on('mouseleave', function () {
+    window.setInterval(() => {
+        n += 1
+        allButtons.eq(n % size).trigger('click')
+            .addClass('red')
+            .siblings('.red').removeClass('red')
+    }, 1000)
+})
