@@ -9,3 +9,10 @@ for (let i = 0; i < allButtons.length; i++) {
         })
     })
 }
+
+var n = 0
+allButtons.eq(n % 5).trigger('click')
+setInterval(() => {
+    n += 1
+    allButtons.eq(n % 5).trigger('click')
+}, 1000)
