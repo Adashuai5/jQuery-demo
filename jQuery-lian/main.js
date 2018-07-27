@@ -8,31 +8,35 @@ for (let i = 0; i < allButtons.length; i++) {
             transform: 'translateX(' + px + 'px)'
         })
         n = index
-        allButtons.eq(n)
-            .addClass('red')
-            .siblings('.red').removeClass('red')
+        activeButton(allButtons.eq(n))
     })
 }
 
 var n = 0
 var size = allButtons.length
-allButtons.eq(n % size).trigger('click')
-    .addClass('red')
-    .siblings('.red').removeClass('red')
-var timerID = setInterval(() => {
-    n += 1
-    allButtons.eq(n % size).trigger('click')
+playSilde(n % size)
+var timerId = setTimer()
+
+function activeButton($button) {
+    $button
         .addClass('red')
         .siblings('.red').removeClass('red')
-}, 1000)
+}
+
+function playSilde(index) {
+    allButtons.eq(index).trigger('click')
+}
+
+function setTimer() {
+    return setInterval(() => {
+        n += 1
+        playSilde(n % size)
+    }, 1000)
+}
+
 $('.window').on('mouseenter', function () {
-    window.clearInterval(timerID)
+    window.clearInterval(timerId)
 })
 $('.window').on('mouseleave', function () {
-    window.setInterval(() => {
-        n += 1
-        allButtons.eq(n % size).trigger('click')
-            .addClass('red')
-            .siblings('.red').removeClass('red')
-    }, 1000)
+    window.setTimer()
 })
