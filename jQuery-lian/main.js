@@ -19,10 +19,17 @@ var size = allButtons.length
 playSilde(n % size)
 var timerId = setTimer()
 
+<<<<<<< HEAD
 $('.window').on('mouseenter',function () {
     window.clearInterval(timerId)
 })
 $('.window').on('mouseleave',function () {
+=======
+$('.window').mouseenter(function () {
+    window.clearInterval(timerId)
+})
+$('.window').mouseleave(function () {
+>>>>>>> cd305677e6159adc797c9ab0072778aafdab302f
     timerId = setTimer()
 })
 
