@@ -19,18 +19,18 @@ var size = allButtons.length
 playSilde(n % size)
 var timerId = setTimer()
 
-$('.window').on('mouseenter',function () {
+$('.window').on('mouseenter', function () {
     window.clearInterval(timerId)
 })
-$('.window').on('mouseleave',function () {
+$('.window').on('mouseleave' (function () {
     timerId = setTimer()
-})
+}))
 
-function playSilde(index){
+function playSilde(index) {
     allButtons.eq(index).trigger('click')
 }
 
-function setTimer(){
+function setTimer() {
     return setInterval(() => {
         n += 1
         playSilde(n % size)
