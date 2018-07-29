@@ -18,18 +18,36 @@
     position: relative;
 }
 
-.images>img{
-    transform: all 0.5s;
+.images>img {
+    width: 100%;
+    transition: all 0.3s;
+    top: 0;
+    left: 100%;
 }
 
 .images>img:nth-child(1) {
     position: absolute;
-    top: 0;
     left: 0;
 }
 
 .images>img:nth-child(2) {
     position: absolute;
-    top: 0;
+}
+
+.images>img:nth-child(3) {
+    position: absolute;
+    z-index: 0;
+}
+
+.images>img:nth-child(4) {
+    position: absolute;
+}
+
+.images>img:nth-child(5) {
+    position: absolute;
+}
+
+.images>img.right {
+    position: absolute;
     left: 100%;
 }
