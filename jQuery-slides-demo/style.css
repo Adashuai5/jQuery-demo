@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.window {
+    width: 500px;
+    height: 281px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.images {
+    position: relative;
+}
+
+.images>img{
+    transform: all 0.5s;
+}
+
+.images>img:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.images>img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
