@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
 .wrapper {
     position: relative;
     display: inline-block;
@@ -32,4 +38,42 @@
     border-right-color: white;
     content: '';
     margin-right: -1px;
+}
+
+.red.active {
+    background: red;
+}
+
+.green.active {
+    background: green;
+}
+
+.yellow.active {
+    background: yellow;
+}
+
+.blue.active {
+    background: blue;
+}
+
+.orange.active {
+    background: orange;
+}
+
+.purple.active {
+    background: purple;
+}
+
+.section div {
+    border: 1px solid black;
+    padding: 10px;
+    transition: all 1s;
+    border-radius: 50%;
+    display: flex;
+    flex: 1;
+}
+
+.red {
+    width: 50vw;
+    height: 50vw;
 }
