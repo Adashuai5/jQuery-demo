@@ -1,9 +1,9 @@
-clickMe.addEventListener('click', function () {
-    popover.style.display = 'block'
+$(clickMe).on('click', function () {
+    $(popover).show()
 })
-wrapper.addEventListener('click', function (e) {
+$(wrapper).on('click', function(e){
     e.stopPropagation()
 })
-document.addEventListener('click', function () {
-    popover.style.display = 'none'
+$(document).on('click', function () {
+    $(popover).hide()
 })
