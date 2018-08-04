@@ -15,3 +15,6 @@
     display: flex;
     transition: all 1s;
 }
+#controls{
+    margin: 0 auto;
+}

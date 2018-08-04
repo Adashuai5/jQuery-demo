@@ -11,21 +11,27 @@
 
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <div class="window">
-        <div class="images" id="slides">
-            <img src="./1.jpg" alt="图片1" width="500" height="281">
-            <img src="./2.jpg" alt="图片2" width="500" height="281">
-            <img src="./3.jpg" alt="图片3" width="500" height="281">
-            <img src="./4.jpg" alt="图片4" width="500" height="281">
-            <img src="./5.jpg" alt="图片5" width="500" height="281">
+    <div class="container">
+        <div class="window">
+            <div class="images" id="slides">
+                <img src="./1.jpg" alt="图片1" width="500" height="281">
+                <img src="./2.jpg" alt="图片2" width="500" height="281">
+                <img src="./3.jpg" alt="图片3" width="500" height="281">
+                <img src="./4.jpg" alt="图片4" width="500" height="281">
+                <img src="./5.jpg" alt="图片5" width="500" height="281">
+            </div>
         </div>
-    </div>
-    <div style="text-align: center;" id="buttonWrapper">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
+        <div style="text-align: center;">
+            <button id="next">上一张</button>
+            <button id="previous">下一张</button>
+        </div>
+        <div style="text-align: center;" id="buttonWrapper">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+        </div>
     </div>
 </body>
 

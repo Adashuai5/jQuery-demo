@@ -1,19 +1,49 @@
 let $buttons = $('#buttonWrapper > button')
 let $slides = $('#slides')
 let $images = $slides.children('img')
+let current = 0
 makeFakeSlides()
 $slides.css({
     transform: 'translateX(-500px)'
 })
 bindEvents()
+$(next).on('click', function () {
+    goToSlide(current - 1)
+})
+$(previous).on('click', function () {
+    goToSlide(current + 1)
+})
 
+var timer = setInterval(function () {
+    goToSlide(current + 1)
+}, 2000)
 
-function bindEvents(){
-    let current = 0
-$buttons.eq(0).on('click', function () {
-    if (current === 4) {
+$('.container').on('mouseenter', function () {
+    window.clearInterval(timer)
+}).on('mouseleave', function () {
+    timer = setInterval(function () {
+        goToSlide(current + 1)
+    }, 2000)
+})
+
+function bindEvents() {
+
+    $('#buttonWrapper').on('click', 'button', function (e) {
+        let $button = $(e.currentTarget)
+        let index = $button.index()
+        goToSlide(index)
+    })
+}
+
+function goToSlide(index) {
+    if (index > $buttons.length - 1) {
+        index = 0
+    } else if (index < 0) {
+        index = $buttons.length - 1
+    }
+    if (current === $buttons.length - 1 && index === 0) {
         $slides.css({
-                transform: 'translateX(-3000px)'
+                transform: `translateX(${- ($buttons.length + 1) * 500}px)`
             })
             .one('transitionend', function () {
                 $slides.hide()
@@ -23,33 +53,7 @@ $buttons.eq(0).on('click', function () {
                     })
                     .show()
             })
-    } else {
-        $slides.css({
-            transform: 'translateX(-500px)'
-        })
-        current = 0
-    }
-})
-$buttons.eq(1).on('click', function () {
-    $slides.css({
-        transform: 'translateX(-1000px)'
-    })
-    current = 1
-})
-$buttons.eq(2).on('click', function () {
-    $slides.css({
-        transform: 'translateX(-1500px)'
-    })
-    current = 2
-})
-$buttons.eq(3).on('click', function () {
-    $slides.css({
-        transform: 'translateX(-2000px)'
-    })
-    current = 3
-})
-$buttons.eq(4).on('click', function () {
-    if (current === 0) {
+    } else if (current === 0 && index === $buttons.length - 1) {
         $slides.css({
                 transform: 'translateX(0px)'
             })
@@ -57,17 +61,16 @@ $buttons.eq(4).on('click', function () {
                 $slides.hide()
                     .offset()
                 $slides.css({
-                        transform: 'translateX(-2500px)'
+                        transform: `translateX(${- (index+1) * 500}px)`
                     })
                     .show()
             })
     } else {
         $slides.css({
-            transform: 'translateX(-2500px)'
+            transform: `translateX(${- (index+1) * 500}px)`
         })
-        current = 4
     }
-})
+    current = index
 }
 
 function makeFakeSlides() {
