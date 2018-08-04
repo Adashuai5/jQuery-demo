@@ -61,32 +61,26 @@ body {
     position: absolute;
     top: 50%;
     left: 20px;
-    transform: translateY(-50%);
     border-radius: 50%;
-    border: 1px solid #888;
-}
-
-.window .controls .previous:hover {
-    background: #ccc;
-    box-shadow: 0 0 3px 0;
 }
 
 .window .controls .next {
     position: absolute;
     top: 50%;
     right: 20px;
-    transform: translateY(-50%);
     border-radius: 50%;
-    border: 1px solid #888;
 }
 
-.window .controls .next:hover {
+.window .controls .previous:hover,
+.next:hover {
     background: #ccc;
     box-shadow: 0 0 3px 0;
 }
 
 .icon {
-    font-size: 30px;
-    fill: rgb(102, 96, 96);
-    margin: 10px;
+    width: 4em;
+    height: 4em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
