@@ -8,10 +8,10 @@ $slides.css({
 })
 bindEvents()
 $(next).on('click', function () {
-    goToSlide(current - 1)
+    goToSlide(current + 1)
 })
 $(previous).on('click', function () {
-    goToSlide(current + 1)
+    goToSlide(current - 1)
 })
 
 setTimer()

@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-h1 {
+.text {
     text-align: center;
     font-family: Arial Black;
-    font-size: 42px;
+    font-size: 40px;
     line-height: 200px;
 }
 
@@ -51,10 +51,14 @@ body {
     outline: 1px solid #ccc;
 }
 
+#buttonWrapper>button:hover {
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
 #buttonWrapper>button>div {
     margin-top: 10px;
     width: 60px;
-    height: 45px;
+    height: 35px;
 }
 
 .window .controls .previous {
@@ -74,7 +78,7 @@ body {
 .window .controls .previous:hover,
 .next:hover {
     background: #ccc;
-    box-shadow: 0 0 3px 0;
+    box-shadow: 0 0 2px 0;
 }
 
 .icon {
