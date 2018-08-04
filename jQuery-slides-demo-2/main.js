@@ -14,17 +14,27 @@ $(previous).on('click', function () {
     goToSlide(current + 1)
 })
 
-var timer = setInterval(function () {
-    goToSlide(current + 1)
-}, 2000)
+setTimer()
 
 $('.container').on('mouseenter', function () {
     window.clearInterval(timer)
 }).on('mouseleave', function () {
+    setTimer()
+})
+
+document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        window.clearInterval(timer)
+    } else {
+        setTimer()
+    }
+})
+
+function setTimer(){
     timer = setInterval(function () {
         goToSlide(current + 1)
     }, 2000)
-})
+}
 
 function bindEvents() {
 
