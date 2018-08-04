@@ -1,15 +1,15 @@
 let $buttons = $('#buttonWrapper > button')
 let $slides = $('#slides')
 let $images = $slides.children('img')
-let $firstCopy = $images.eq(0).clone(true)
-let $lastCopy = $images.eq($images.length - 1).clone(true)
-
-$slides.append($firstCopy)
-$slides.prepend($lastCopy)
+makeFakeSlides()
 $slides.css({
     transform: 'translateX(-500px)'
 })
-let current = 0
+bindEvents()
+
+
+function bindEvents(){
+    let current = 0
 $buttons.eq(0).on('click', function () {
     if (current === 4) {
         $slides.css({
@@ -68,3 +68,12 @@ $buttons.eq(4).on('click', function () {
         current = 4
     }
 })
+}
+
+function makeFakeSlides() {
+    let $firstCopy = $images.eq(0).clone(true)
+    let $lastCopy = $images.eq($images.length - 1).clone(true)
+
+    $slides.append($firstCopy)
+    $slides.prepend($lastCopy)
+}
