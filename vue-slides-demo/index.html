@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .window {
+      width: 500px;
+      height: 281px;
+      border: 1px solid black;
+      overflow: hidden;
+    }
+
+    .slides {
+      width: 2500px;
+      height: 281px;
+      transition: all 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script id="jsbin-javascript">
+    let view = new Vue({
+      el: '#app',
+      data: {
+        transformView: '',
+        imgs: ['../Commen-jpg/1.jpg', '../Commen-jpg/2.jpg', '../Commen-jpg/3.jpg', '../Commen-jpg/4.jpg', '../Commen-jpg/5.jpg']
+      },
+      template: `
+    <div>
+      <div class="window">
+        <div class="slides" v-bind:style="{transform:transformView}">
+        <img v-for="url in imgs" v-bind:src="url">
+        </div>
+      </div>
+      <button v-on:click="go(0)">1</button>
+      <button v-on:click="go(1)">2</button>
+      <button v-on:click="go(2)">3</button>
+      <button v-on:click="go(3)">4</button>
+      <button v-on:click="go(4)">5</button>
+    </div>
+  `,
+      methods: {
+        go(index) {
+          this.transformView = `translateX(${-500*index}px)`
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
